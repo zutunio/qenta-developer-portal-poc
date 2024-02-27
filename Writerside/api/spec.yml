@@ -1,0 +1,47 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Retrieve Transaction API
+paths:
+  /massivetransaction/api/ext/v1/transactions/{referenceId}:
+    get:
+      summary: Retrieve a transaction by reference ID
+      description: Retrieves details of a transaction using its reference ID
+      parameters:
+        - name: referenceId
+          in: path
+          description: Unique reference ID of the transaction
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Unique identifier of the transaction
+              type:
+                type: string
+                description: Type of the transaction
+              referenceId:
+                type: string
+                description: Unique reference ID of the transaction
+              status:
+                type: string
+                description: Status of the transaction
+              fiatCurrency:
+                type: string
+                description: Fiat currency of the transaction
+              fiatAmount:
+                type: number
+                format: double
+                description: Fiat amount of the transaction
+              assetAmount:
+                type: number
+                format: double
+                description: Asset amount of the transaction
+              rate:
+                type: number
+
