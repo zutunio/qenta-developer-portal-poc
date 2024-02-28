@@ -10,4 +10,12 @@
         <description>Created after removal of "Diagrams" from QENTA</description>
         <accepts>Diagrams.html</accepts>
     </rule>
+    <rule id="652c79cd">
+        <description>Created after removal of "zzz" from QENTA</description>
+        <accepts>zzz.html</accepts>
+    </rule>
+    <rule id="bb1a70f">
+        <description>Created after removal of "zzzzzz" from QENTA</description>
+        <accepts>zzzzzz.html</accepts>
+    </rule>
 </rules>

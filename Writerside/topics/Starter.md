@@ -22,12 +22,13 @@ testing your API endpoints.
 Navigate through the available API documentation to understand the available endpoints, request/response
 formats, and any additional information provided.
 
-<img src="swagger.png" alt="swagger-api-doc" border-effect="line"/>
-
+![Swagger](swagger.png){ style="block" thumbnail="true"}
 
 ## Test the server
+
 You can use curl to test the `REST API` endpoints of your %product_2%. Here's an example using the provided curl
 command:
+
 
 ```bash
 curl --location --request POST "http://localhost:8080/qenta-sdk/orders" ^
@@ -37,6 +38,7 @@ curl --location --request POST "http://localhost:8080/qenta-sdk/orders" ^
 --header "Connection: keep-alive" ^
 --data-raw "{ \"currency\" : \"EUR\", \"fiatAmount\" : 120.0, \"accountId\" : \"3213\"}"
 ```
+
 <p>This curl command performs a POST request to the specified URL <code>(http://localhost:8080/qenta-sdk/orders)</code> with a
 <code>JSON</code> payload</p>
 
@@ -48,6 +50,6 @@ status.
     <tab title="Example HTTP Response ">
         <p>Below is an example screenshot from a REST client showing a successful 200 OK HTTP response after executing the
         curl command.</p>
-            <img src="success.jpeg" alt="successful-response" width="450px">
     </tab>
 </tabs>
+
