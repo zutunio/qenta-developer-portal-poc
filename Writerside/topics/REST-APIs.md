@@ -1,4 +1,4 @@
-# API DOCUMENTATION
+# REST APIs
 
 <show-structure for="chapter,procedure" depth="1"/>
 
