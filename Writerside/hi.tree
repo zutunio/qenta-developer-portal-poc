@@ -7,11 +7,12 @@
                  start-page="Overview.md">
 
     <toc-element topic="Overview.md"/>
+    <toc-element topic="REST-APIs.md">
+        <toc-element topic="Authentication.md"/>
+        <toc-element topic="Purchase-Orders.md"/>
+    </toc-element>
     <toc-element topic="SDK.md">
         <toc-element topic="Java-SDK.md"/>
-    </toc-element>
-    <toc-element topic="REST-APIs.md">
-        <toc-element topic="Purchase-Orders.md"/>
     </toc-element>
     <toc-element topic="Proxy-Server.md"/>
 </instance-profile>

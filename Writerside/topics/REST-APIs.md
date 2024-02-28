@@ -1,7 +1,5 @@
 # REST APIs
 
-<show-structure for="chapter,procedure" depth="1"/>
-
 ## API to Get Order Details By Reference ID
 
 Use a REST client and make the GET Request, the URL requires the order `reference id` as a path parameter:
