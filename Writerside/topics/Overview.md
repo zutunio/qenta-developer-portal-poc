@@ -13,7 +13,10 @@ requires the use of the user's or organization's private key.
 
 To ensure the security of this process, the signing takes place on the client side, preventing sensitive information
 from traversing the network.
-![Overview](overview.png){ border-effect="line" thumbnail="true" width="321" }
+
+## Design
+
+![Overview](overview.png){ style="block" thumbnail="true"}
 
 ## Qenta SDK Proxy Server
 
@@ -31,7 +34,7 @@ The following steps are required to install the %product_2% in a Windows Server 
 >
 > Make sure the server has internet access to download the required JRE files and administrative access to your
 > Windows Server.
->
+
 {style="note"}
 
 
@@ -50,7 +53,7 @@ The following steps are required to install the %product_2% in a Windows Server 
         <p>Create Target Directory </p>
         <list>
             <li>Open Command Prompt as an administrator</li>
-            <li> <p>Run the following command to create a directory for Java<p/>
+            <li> <p>Run the following command to create a directory for Java</p>
             <code>mkdir C:\Java\jre-21</code>
             </li>
         </list>
@@ -59,7 +62,7 @@ The following steps are required to install the %product_2% in a Windows Server 
     <p>Extract JRE Files </p>
         <list>
             <li>Navigate to the directory where you saved the downloaded ZIP file</li>
-            <li> <p> Right-click on the ZIP file, choose <shortcut>Extract All </shortcut> and select the target directory as C:\Java <p/>
+            <li> <p> Right-click on the ZIP file, choose <shortcut>Extract All </shortcut> and select the target directory as C:\Java </p>
             </li>
         </list>
     </step>
@@ -67,7 +70,7 @@ The following steps are required to install the %product_2% in a Windows Server 
     <p>Set <code>JAVA_HOME</code> </p>
         <list>
             <li>Open Command Prompt as an administrator.</li>
-            <li> <p> Run the following command to set the <code>JAVA_HOME</code> environment variable<p/>
+            <li> <p> Run the following command to set the <code>JAVA_HOME</code> environment variable</p>
                 <code>setx JAVA_HOME "C:\Java\jre-21" /M</code>
             </li>
         </list>
@@ -76,20 +79,27 @@ The following steps are required to install the %product_2% in a Windows Server 
     <p>Copy JAR Files</p>
         <list>
             <li>Open a new Command Prompt as an administrator.</li>
-            <li> <p> Run the following command to copy JAR files to the designated location<p/>
-                <code>xcopy /Y /S /E C:\Java\jdk-21.0.1+12-jre\* %JAVA_HOME%\</code>
+            <li> <p> Run the following command to copy JAR files to the designated location</p>
+            <code-block lang="bash" ignore-vars="true">
+                xcopy /Y /S /E C:\Java\jdk-21.0.1+12-jre\* %JAVA_HOME%\
+                </code-block> 
             </li>
         </list>
     </step>
     <step>
     <p>Update PATH Variable to persist across restarts</p>
-       <code>setx PATH "%PATH%;%JAVA_HOME%\bin" /M</code>
+    <code-block lang="bash"  ignore-vars="true">
+    setx PATH "%PATH%;%JAVA_HOME%\bin" /M
+    </code-block>
     </step>
     <step>
     <p>Verify Installation</p>
     <list>
     <li> <p>Open a new Command Prompt as an administrator and execute the command: </p>
-        <code>setx PATH "%PATH%;%JAVA_HOME%\bin" /M</code>
+    <code-block lang="bash" ignore-vars="true">
+    setx PATH "%PATH%;%JAVA_HOME%\bin" /M
+    </code-block>        
+<code></code>
     </li>
     </list>
     </step>
@@ -144,8 +154,7 @@ files, one that installs JRE 21 and another one that runs the SDK Server.
 environment variables.</li>
     </list>
     </step>
-    <step>
-        <p>Prepare the Server JAR:</p>
+    <step><p>Prepare the Server JAR:</p>
         <list>
             <li>Place your Spring server JAR file <code>(e.g., qenta-sdk-server-1.0.0.jar)</code> and the corresponding
             JSON configuration file <code>(e.g., configuration.json) </code>in the same directory as the batch files

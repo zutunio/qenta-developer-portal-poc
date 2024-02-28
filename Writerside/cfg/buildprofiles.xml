@@ -2,8 +2,6 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
         <primary-color>aqua</primary-color>
-        <custom-favicons>favicon.png</custom-favicons>
-        <header-logo>my-logo.png</header-logo>
         <product-web-url>https://help.example.com</product-web-url>
         <download-title>Qenta Developer Portal</download-title>
         <download-page>https://example.com</download-page>
