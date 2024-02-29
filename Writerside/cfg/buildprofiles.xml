@@ -8,6 +8,7 @@
         <download-title>Developer Portal</download-title>
         <download-page>https://example.com</download-page>
         <showDownloadButton>false</showDownloadButton>
+        <noindex-content>false</noindex-content>
     </variables>
     <build-profile instance="instance_id"/>
     <footer>
