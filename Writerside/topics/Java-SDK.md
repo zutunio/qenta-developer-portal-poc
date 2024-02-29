@@ -9,7 +9,6 @@ The following steps are required to install the %product_2% in a Windows Server 
 
 {style="note"}
 
-
 <procedure title="Procedure" id="manual-integration">
     <step>
         <p>Download JRE 21 and select a procedure type from the completion suggestions:</p>
@@ -107,6 +106,7 @@ The following steps are required to install the %product_2% in a Windows Server 
 > add: --server.port=custom_port_number
 >
 {style="tip"}
+
 
 ## Qenta Integration Using Windows Batch Scripts
 

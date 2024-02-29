@@ -28,4 +28,7 @@ The Qenta SDK for Java enhances the integration of Qenta Services by offering a 
 <tab title="Proxy Server">
 Qenta for non-Java based application, it possible to run a lightweight proxy server that exposes all SDK methods as a RESTful API with JSON payloads to use SDK methods using a standard HTTP connection. <a href="Proxy-Server.md">See more</a>
 </tab>
+<tab title="Events notifications">
+Stay seamlessly informed about updates on your transactions through our notification tools. Our WebHooks empowers you to effortlessly integrate and leverage real-time transaction updates, ensuring you are always in the know. <a href="Webhook-Management.md">See more</a>
+</tab>
 </tabs>

@@ -53,7 +53,7 @@ Once the toke is generated, you could copy it and use it for the API calls
 With the `access token` you are ready to make the API call in any programming language. The following examples show you how to use your access token using cURL.
 
 ```Shell
-curl -v -X POST "https://api.gcoin.com/orgs/123/recipients"\
+curl -v -X POST 'https://api.gcoin.com/orgs/123/recipients'\
  -H 'Content-Type: application/json'\
  -H 'Authorization: Bearer <access_token>'\
  -d '{"field" : "value"}'

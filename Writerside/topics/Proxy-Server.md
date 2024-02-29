@@ -1,13 +1,39 @@
 # Proxy Server
 
-<!--Writerside adds this topic when you create a new documentation project.
-You can use it as a sandbox to play with Writerside features, and remove it from the TOC when you don't need it anymore.-->
-
-%product% for non-Java based application, it possible to run a lightweight proxy server that exposes all SDK methods as
+**%product_name%** for non-Java based application, it possible to run a lightweight proxy server that exposes all SDK methods as
 a
 RESTful API with JSON payloads to use SDK methods using a standard HTTP connection.
 
-![Proxy](proxy-server.png){ border-effect="line" thumbnail="true" width="321" }
+```plantuml
+@startuml
+
+scale max 800 width
+
+package "External System"{
+    node "VPC" {
+        node "Non-Java based" {
+            OutPort -left- [Backend]
+        }
+        node "Docker-based environment" {
+            RestAPI -down- [ProxyServer] 
+            component ProxyServer {
+                [SDK] #orange
+            }
+        }
+        OutPort .down.> RestAPI : POST \n http://localhost:8080
+    }
+}
+
+package "Qenta" {
+    HTTP - [Qenta Rest APIs]
+    [API Gateway] .right.> HTTP
+}
+
+SDK .right.> [API Gateway]
+
+@enduml
+
+```
 
 ## Qenta SDK Server Manual Integration
 

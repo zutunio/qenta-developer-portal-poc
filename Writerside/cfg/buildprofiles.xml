@@ -3,9 +3,9 @@
     <variables>
         <primary-color>iris</primary-color>
         <custom-favicons>https://guides.qenta.com/_/img/Favicon-QENTA-RGB.png</custom-favicons>
-        <header-logo>logo.png</header-logo>
+        <header-logo>qenta_logo.png</header-logo>
         <product-web-url>https://qenta.com/</product-web-url>
-        <download-title>Qenta Developer Portal</download-title>
+        <download-title>Developer Portal</download-title>
         <download-page>https://example.com</download-page>
         <showDownloadButton>false</showDownloadButton>
     </variables>

@@ -1,51 +1,28 @@
 # REST APIs
 
-## API to Get Order Details By Reference ID
+**%product_name%** REST APIs requires an access Token to authenticate requests. The access token authorizes you to use the REST APIs. [See more](Authentication.md)
 
-Use a REST client and make the GET Request, the URL requires the order `reference id` as a path parameter:
-
-
-<api-doc openapi-path="../api/spec.yml">
-<api-endpoint endpoint="/massivetransaction/api/ext/v1/transactions/{referenceId}" method="GET"></api-endpoint>
-</api-doc>
-
-
-Below is an example screenshot from a `REST` client showing a successful 200 OK HTTP response.
-Remember to set the `base_url` depending on the environment to use.
-
-For dev, use:
-
-```bash
-    https://api.dev.gmint.io
-   ```
-
-## Get Notifications for Purchase Orders
-
-Clients can register one or many webhook URLs to receive notifications whenever there is a status change for their
-purchase orders.
-
-> **BEFORE YOU START**
+> **Important:¨** You'll need a corporate account to be able to use the APIs
 >
-> The webhook URLs to register must return a 2xx HTTP response to indicate successful receipt of the notification. 
-> Failure to do so will result in retries by our system. (Up to 3 attempts)
-> 
 {style="note"}
 
-<api-doc openapi-path="../api/spec_2.yml"/>
+## API Requests
 
-### Handling Webhook Notifications 
+Use any of the HTTP verb `GET`, `POST`, `PUT`, `PATCH` to make REST API request to the URL of the API service in order to query, submit data or delete.
 
-<p>Once your webhook URL(s) are registered, you will automatically receive notifications whenever there is a status
-change for your purchase orders. These notifications will be sent to the registered webhook URL(s) as <code>HTTP POST</code>
-requests</p>
+The URL of the API is:
 
-<code-block lang="JSON">
-{
- "event": "orders.status",
- "order": {
- "referenceId": "G2123456789",
- "priorStatus": "CREATED",
- "currentStatus": "CHARGED"
- }
-}
-</code-block>
+| Environment       | URL                                            |
+|-------------------|------------------------------------------------|
+| `%test_env_name%` | [**%test_env_base_url%**](%test_env_base_url%) |
+| `%prod_env_name%`  | [**%prod_env_base_url%**](%prod_env_base_url%) |
+
+The follow sample is a `%test_env_name%` request to list organization recipients:
+
+```Shell
+curl -v -X GET %test_env_base_url%/orgs/123/recipients?page=1\
+-H 'Content-Type: application/json'\
+-H 'Authorization: Bearer <access_token>'
+```
+{ignore-vars="false"}
+
