@@ -2,7 +2,7 @@
 
 **%product_name%** REST APIs requires an access Token to authenticate requests. The access token authorizes you to use the REST APIs. [See more](Authentication.md)
 
-> **Important:¨** You'll need a corporate account to be able to use the APIs
+> **Important:** You'll need a corporate account to be able to use the APIs
 >
 {style="note"}
 
@@ -25,4 +25,3 @@ curl -v -X GET %test_env_base_url%/orgs/123/recipients?page=1\
 -H 'Authorization: Bearer <access_token>'
 ```
 {ignore-vars="false"}
-

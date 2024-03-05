@@ -18,4 +18,8 @@
         <description>Created after removal of "zzzzzz" from QENTA</description>
         <accepts>zzzzzz.html</accepts>
     </rule>
+    <rule id="46d63213">
+        <description>Created after removal of "Starter" from Developer Portal</description>
+        <accepts>Starter.html</accepts>
+    </rule>
 </rules>

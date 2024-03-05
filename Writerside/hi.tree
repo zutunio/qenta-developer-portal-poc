@@ -6,14 +6,15 @@
                  name="Developer Portal"
                  start-page="Overview.md">
 
+    <toc-element topic="Section-Starting-Page.topic"/>
     <toc-element topic="Overview.md"/>
-    <toc-element topic="REST-APIs.md">
+    <toc-element topic="REST-APIs.md" id="rest_apis">
         <toc-element topic="Authentication.md"/>
         <toc-element topic="Purchase-Orders.md"/>
         <toc-element topic="Webhook-Management.md"/>
     </toc-element>
-    <toc-element topic="SDK.md">
+    <toc-element topic="SDK_and_Tools.md">
         <toc-element topic="Java-SDK.md"/>
+        <toc-element topic="Proxy-Server.md"/>
     </toc-element>
-    <toc-element topic="Proxy-Server.md"/>
 </instance-profile>
