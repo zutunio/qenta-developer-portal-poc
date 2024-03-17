@@ -11,8 +11,8 @@ permissions:
 
 env:
   INSTANCE: Writerside/prow
-  ARTIFACT: prow.zip
-  DOCKER_VERSION: 233.14389
+  ARTIFACT: webHelpPROW2-all.zip
+  DOCKER_VERSION: 233.14938
 
 jobs:
   build:
