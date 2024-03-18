@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: list
+      - name: list files
         run: ls
 
       - name: Build docs using Writerside Docker builder
@@ -30,6 +30,9 @@ jobs:
           instance: ${{ env.PROW_INSTANCE }}
           artifact: ${{ env.PROW_ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
+
+      - name: list files
+        run: ls
 
       - name: Save artifact with build results
         uses: actions/upload-artifact@v3
