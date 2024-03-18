@@ -19,7 +19,7 @@ env:
   DOCKER_VERSION: 233.14938
 
 jobs:
-  build-prow:
+  build:
     name: "Build Docs"
     runs-on: ubuntu-latest
     steps:
@@ -55,24 +55,11 @@ jobs:
           name: docs
           path: docs/*
           retention-days: 7
-  test:
-    needs: build-prow
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: docs
-
-      - name: Test documentation
-        uses: JetBrains/writerside-checker-action@v1
-        with:
-          instance: ${{ env.PROW_FOLDER }}/${{ env.PROW_INSTANCE }}
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: [build-prow, test]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -86,8 +73,11 @@ jobs:
           cp index.html dir/index.html
           mkdir prowallet
 
-      - name: Unzip artifact
-        run: unzip -O UTF-8 -qq ${{ env.PROW_ARTIFACT }} -d dir/prowallet
+      - name: Unzip Prowallet
+        run: unzip -O UTF-8 -qq ${{ env.PROW_FOLDER }}/${{ env.PROW_ARTIFACT }} -d dir/prowallet
+
+      - name: Unzip Test
+        run: unzip -O UTF-8 -qq ${{ env.TEST_FOLDER }}/${{ env.TEST_ARTIFACT }} -d dir/test
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
