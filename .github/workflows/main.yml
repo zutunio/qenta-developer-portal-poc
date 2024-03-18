@@ -65,7 +65,7 @@ jobs:
       - name: Create Pages folder
         run: | 
           mkdir dir
-          touch "Hello" > dir/index.html
+          echo "Hello" > dir/index.html
           mkdir prowallet
 
       - name: Unzip artifact
