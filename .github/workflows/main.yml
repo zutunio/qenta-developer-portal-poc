@@ -15,7 +15,8 @@ env:
   DOCKER_VERSION: 233.14938
 
 jobs:
-  build:
+  build-prow:
+    name: "Build Prowallet Doc"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -41,7 +42,7 @@ jobs:
             artifacts/index.html
           retention-days: 7
   test:
-    needs: build
+    needs: build-prow
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -58,7 +59,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: [build, test]
+    needs: [build-prow, test]
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
