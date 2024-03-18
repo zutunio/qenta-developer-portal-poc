@@ -21,9 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: list files
-        run: ls
-
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
@@ -41,6 +38,7 @@ jobs:
           path: |
             artifacts/${{ env.PROW_ARTIFACT }}
             artifacts/report.json
+            index.html
           retention-days: 7
   test:
     needs: build
@@ -71,7 +69,7 @@ jobs:
       - name: Create Pages folder
         run: | 
           mkdir dir
-          echo "Hello" > dir/index.html
+          cp index.html dir/index.html
           mkdir prowallet
 
       - name: Unzip artifact
