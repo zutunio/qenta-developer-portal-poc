@@ -71,7 +71,6 @@ jobs:
         run: | 
           mkdir dir
           cp index.html dir/index.html
-          mkdir prowallet
 
       - name: Unzip Prowallet
         run: unzip -O UTF-8 -qq ${{ env.PROW_FOLDER }}/${{ env.PROW_ARTIFACT }} -d dir/prowallet
