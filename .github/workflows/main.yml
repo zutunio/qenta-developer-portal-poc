@@ -10,8 +10,8 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: Writerside/prow
-  ARTIFACT: webHelpPROW2-all.zip
+  PROW_INSTANCE: Writerside/prow
+  PROW_ARTIFACT: webHelpPROW2-all.zip
   DOCKER_VERSION: 233.14938
 
 jobs:
@@ -24,8 +24,8 @@ jobs:
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
+          instance: ${{ env.PROW_INSTANCE }}
+          artifact: ${{ env.PROW_ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: Save artifact with build results
@@ -33,7 +33,7 @@ jobs:
         with:
           name: docs
           path: |
-            artifacts/${{ env.ARTIFACT }}
+            artifacts/${{ env.PROW_ARTIFACT }}
             artifacts/report.json
           retention-days: 7
   test:
@@ -49,7 +49,7 @@ jobs:
       - name: Test documentation
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: ${{ env.INSTANCE }}
+          instance: ${{ env.PROW_INSTANCE }}
   deploy:
     environment:
       name: github-pages
@@ -69,7 +69,7 @@ jobs:
           mkdir prowallet
 
       - name: Unzip artifact
-        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir/prowallet
+        run: unzip -O UTF-8 -qq ${{ env.PROW_ARTIFACT }} -d dir/prowallet
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
