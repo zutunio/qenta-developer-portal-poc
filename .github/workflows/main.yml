@@ -34,7 +34,7 @@ jobs:
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: Copy ProWallet Docs
-        run: mkdir docs/${{ env.PROW_FOLDER }} && cp -r artifacts/* docs/${{ env.PROW_FOLDER }}
+        run: mkdir -p docs/${{ env.PROW_FOLDER }} && cp -r artifacts/* docs/${{ env.PROW_FOLDER }}
 
       - name: Build Test docs
         uses: JetBrains/writerside-github-action@v4
@@ -44,7 +44,7 @@ jobs:
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: Copy Test Docs
-        run: mkdir docs/${{ env.TEST_FOLDER }} && cp -r artifacts/* docs/${{ env.TEST_FOLDER }}
+        run: mkdir -p docs/${{ env.TEST_FOLDER }} && cp -r artifacts/* docs/${{ env.TEST_FOLDER }}
 
       - name: Copy index to docs folder
         run: cp index.html docs/index.html
