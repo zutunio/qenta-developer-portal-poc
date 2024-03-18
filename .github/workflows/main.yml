@@ -63,12 +63,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docs
-          path: artifacts
 
       - name: Test documentation
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: ${{ env.PROW_INSTANCE }}
+          instance: ${{ env.PROW_FOLDER }}/${{ env.PROW_INSTANCE }}
   deploy:
     environment:
       name: github-pages
