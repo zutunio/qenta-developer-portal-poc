@@ -28,8 +28,8 @@ jobs:
           artifact: ${{ env.PROW_ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: list files
-        run: ls
+      - name: CP to artifacts folder
+        run: cp index.html artifacts/index.html
 
       - name: Save artifact with build results
         uses: actions/upload-artifact@v4
@@ -38,7 +38,7 @@ jobs:
           path: |
             artifacts/${{ env.PROW_ARTIFACT }}
             artifacts/report.json
-            ./index.html
+            artifacts/index.html
           retention-days: 7
   test:
     needs: build
