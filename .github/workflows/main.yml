@@ -11,7 +11,7 @@ permissions:
 
 env:
   INSTANCE: Writerside/prow
-  ARTIFACT: prow.zip
+  ARTIFACT: webHelpPROW2-all.zip
   DOCKER_VERSION: 233.14938
 
 jobs:
@@ -62,8 +62,14 @@ jobs:
         with:
           name: docs
 
+      - name: Create Pages folder
+        run: | 
+          mkdir dir
+          touch "Hello" > dir/index.html
+          mkdir prowallet
+
       - name: Unzip artifact
-        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
+        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir/prowallet
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
