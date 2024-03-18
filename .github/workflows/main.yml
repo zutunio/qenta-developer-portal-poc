@@ -12,21 +12,30 @@ permissions:
 env:
   PROW_INSTANCE: Writerside/prow
   PROW_ARTIFACT: webHelpPROW2-all.zip
+  TEST_INSTANCE: Writerside/test
+  TEST_ARTIFACT: webHelpTEST2-all.zip
   DOCKER_VERSION: 233.14938
 
 jobs:
   build-prow:
-    name: "Build Prowallet Doc"
+    name: "Build Docs"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build docs using Writerside Docker builder
+      - name: Build ProWallet docs
         uses: JetBrains/writerside-github-action@v4
         with:
           instance: ${{ env.PROW_INSTANCE }}
           artifact: ${{ env.PROW_ARTIFACT }}
+          docker-version: ${{ env.DOCKER_VERSION }}
+
+      - name: Build Test docs
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ env.TEST_INSTANCE }}
+          artifact: ${{ env.TEST_ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: CP to artifacts folder
